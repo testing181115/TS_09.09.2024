@@ -40,14 +40,16 @@ class Lecturer {
     private _position: string;
     private _company: string;
     private _experience: string;
-    private _contacts: string;
+    private _courses: string[];
+    private _contacts: string[];
 
-    constructor(name: string, surname: string, position: string, company: string, experience: string, contacts: string) {
+    constructor(name: string, surname: string, position: string, company: string, experience: string, courses: string[], contacts: string[]) {
         this._name = name;
         this._surname = surname;
         this._position = position;
         this._company = company;
         this._experience = experience;
+        this._courses = courses;
         this._contacts = contacts;
     }
 
@@ -91,11 +93,19 @@ class Lecturer {
         this._experience = experience;
     }
 
-    public get contacts(): string {
+    public get courses(): string[] {
+        return this._courses;
+    }
+
+    public set courses(courses: string[]) {
+        this._courses = courses;
+    }
+
+    public get contacts(): string[] {
         return this._contacts;
     }
 
-    public set contacts(contacts: string) {
+    public set contacts(contacts: string[]) {
         this._contacts = contacts;
     }
 }
@@ -350,7 +360,7 @@ class Student {
         return `${this._lastName} ${this._firstName}`;
     }
 
-    public set fullName(value) {
+    public set fullName(value: string) {
         [this._lastName, this._firstName] = value.split(' ');
     }
 
