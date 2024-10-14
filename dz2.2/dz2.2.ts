@@ -9,7 +9,7 @@ class School {
         this._lecturers = lecturers;
     }
 
-    get areas() {
+    get areas(): Area[] {
         return this._areas;
     }
 
