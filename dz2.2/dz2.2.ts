@@ -25,11 +25,27 @@ class School {
         let newAreas: Area[] = [];
         for (var i = 0; i < this._areas.length; i++) {
             if (this._areas[i].name !== area.name) {
-                newAreas.push(newAreas[i]);
+                newAreas.push(this._areas[i]);
             }
         }
 
         this._areas = newAreas;
+        return this._areas.length;
+    }
+
+    public addLecturer(lecturer: Lecturer): number {
+        return this._lecturers.push(lecturer);
+    }
+
+    public removeLecturer(lecturer: Lecturer): number {
+        let newLecturers: Lecturer[] = [];
+        for (var i = 0; i < this._areas.length; i++) {
+            if (this._lecturers[i].name !== lecturer.name && this._lecturers[i].surname !== lecturer.surname) {
+                newLecturers.push(this._lecturers[i]);
+            }
+        }
+
+        this._lecturers = newLecturers;
         return this._areas.length;
     }
 }
@@ -190,11 +206,11 @@ class Level {
         this._description = description;
     }
 
-    public addGroup(group: Group) {
-        this._groups.push(group);
+    public addGroup(group: Group): number {
+        return this._groups.push(group);
     }
 
-    public removeGroup(group: Group) {
+    public removeGroup(group: Group): number {
         let newGroups: Group[] = [];
         for (var i = 0; i < this._groups.length; i++) {
             if (this._groups[i].directionName !== group.directionName && this._groups[i].levelName !== group.levelName) {
@@ -270,11 +286,11 @@ class Group {
         this._students = students;
     }
 
-    public addStudent(student: Student) {
-        this._students.push(student);
+    public addStudent(student: Student): number {
+        return this._students.push(student);
     }
 
-    public removeStudent(student: Student) {
+    public removeStudent(student: Student): number {
         let newStudents: Student[] = [];
         for (var i = 0; i < this._students.length; i++) {
             if (this._students[i].fullName !== student.fullName && this._students[i].age !== student.age) {
